@@ -21,7 +21,6 @@ LinksProd = []
 
 nomeProduto = str(input("Digite o nome do produto: "))
 
-c = 0
 navegador = webdriver.Chrome()
 valorProd = []
 avaliacoesProd = []
@@ -59,9 +58,10 @@ if response.status_code == 200:
         if "/dp/" in link['href']:
 
             titulo = link.get_text(strip=True).lower()
-            indesejado = ["capinha", "capa", "case", "pelicula", "capinhas", "capas", "cases", "peliculas", "motorola", "xiaomi", "iphone"]
-            if any(palavra in titulo for palavra in indesejado):
-                continue
+            if nomeProduto != indesejado:
+                indesejado = ["capinha", "capa", "case", "pelicula", "capinhas", "capas", "cases", "peliculas", "motorola", "xiaomi", "iphone"]
+                if any(palavra in titulo for palavra in indesejado):
+                    continue
 
             full_link = f"https://www.amazon.com.br{link['href'].split('?')[0]}"
 
@@ -105,7 +105,7 @@ for linksCel in LinksProd:
         print()
 
         print(f"Acessando VALOR: {linksCel}")
-        elemento01 = WebDriverWait(navegador, 20).until(
+        elemento01 = WebDriverWait(navegador, 10).until(
             EC.visibility_of_element_located((By.XPATH, '//*[@id="corePriceDisplay_desktop_feature_div"]/div[1]/span[2]/span[2]/span[2]'))
         )
 
@@ -115,11 +115,11 @@ for linksCel in LinksProd:
         valorProd.append(texto_elemento01)
 
     except Exception as erro:
-        print(f"Não foi possível acessar o {c}° XPATH do elemento. {erro}")
+        print(f"Não foi possível acessar o {cPreco}° XPATH do elemento. {erro}")
 
         try:
             print(f"Vamos tentar por um XPATH mais genérico e menos propenso a mudanças...")
-            elemento03 = WebDriverWait(navegador, 20).until(
+            elemento03 = WebDriverWait(navegador, 10).until(
                 EC.visibility_of_element_located((By.XPATH, '//div[@id="corePriceDisplay_desktop_feature_div"]//span[contains(@class, "a-price-whole")]'))
             )
 
@@ -128,11 +128,11 @@ for linksCel in LinksProd:
             valorProd.append(texto_elemento03)
 
         except Exception as erro:
-            print(f"Não foi possível acessar o {c}° XPATH GENÉRICO do elemento. {erro}")
+            print(f"Não foi possível acessar o {cPreco}° XPATH GENÉRICO do elemento. {erro}")
 
             try:
                 print(f"Vamos tentar pelo CSS_SELECTOR...")
-                elemento05 = WebDriverWait(navegador, 20).until(
+                elemento05 = WebDriverWait(navegador, 10).until(
                     EC.visibility_of_element_located((By.CSS_SELECTOR, '#corePriceDisplay_desktop_feature_div > div.a-section.a-spacing-none.aok-align-center.aok-relative > span.a-price.aok-align-center.reinventPricePriceToPayMargin.priceToPay > span:nth-child(2) > span.a-price-whole'))
                 )
 
@@ -141,14 +141,14 @@ for linksCel in LinksProd:
                 valorProd.append(texto_elemento05)
                 
             except Exception as erro:
-                print(f"Não foi possível acessar o {c}° CSS_SELECTOR do elemento. {erro}")
+                print(f"Não foi possível acessar o {cPreco}° CSS_SELECTOR do elemento. {erro}")
             
 
     try:
         sleep(3)
         print()
         print(f"Acessando AVALIAÇÃO: {linksCel}")
-        elemento02 = WebDriverWait(navegador, 20).until(
+        elemento02 = WebDriverWait(navegador, 10).until(
             EC.visibility_of_element_located((By.XPATH, '//*[@id="acrPopover"]/span/a/span'))
         )
 
@@ -157,10 +157,10 @@ for linksCel in LinksProd:
         avaliacoesProd.append(texto_elemento02)
 
     except Exception as erro:
-        print(f"Não foi possível acessar o XPATH do elemento. {erro}")
+        print(f"Não foi possível acessar o {cAvaliacao}° XPATH do elemento. {erro}")
 
         try:
-            elemento04 = WebDriverWait(navegador, 20).until(
+            elemento04 = WebDriverWait(navegador, 10).until(
                 EC.visibility_of_element_located((By.XPATH, '//div[@id="acrPopover"]//span[contains(@class, "a-size-small a-color-base")]'))
             )
 
@@ -169,10 +169,10 @@ for linksCel in LinksProd:
             avaliacoesProd.append(texto_elemento04)
 
         except Exception as erro:
-            print(f"Não foi possível acessar o {c}° XPATH GENÉRICO do elemento. {erro}")
+            print(f"Não foi possível acessar o {cAvaliacao}° XPATH GENÉRICO do elemento. {erro}")
 
             try:
-                elemento06 = WebDriverWait(navegador, 20).until(
+                elemento06 = WebDriverWait(navegador, 10).until(
                     EC.visibility_of_element_located((By.CSS_SELECTOR, '#acrPopover > span > a > span'))
                 )
 
@@ -181,16 +181,13 @@ for linksCel in LinksProd:
                 avaliacoesProd.append(texto_elemento06)
 
             except Exception as erro:
-                print(f"Não foi possível acessar o {c}° CSS_SELECTOR do elemento. {erro}")
+                print(f"Não foi possível acessar o {cAvaliacao}° CSS_SELECTOR do elemento. {erro}")
 
 
     print(valorProd)
     print(avaliacoesProd)
     
 print(dadosCompletos)
-
-input("Pressione 'Enter' para sair...")
-print("")
 
 
 tabela = pd.DataFrame.from_dict(dadosCompletos, orient="columns")
