@@ -31,7 +31,33 @@ Ferramenta desenvolvida em Python para automatizar a busca por preços e avalia�
 
 ---
 
-📎 Exemplo de Saída
+## 📦 Como Executar o Projeto
+
+```bash
+1. Clone o repositório:
+
+git clone https://github.com/vinijr01/comparativoPreco.git
+cd comparativoPreco
+
+
+2. Escolha o projeto:
+Use o projeto "AutomateWebTrue.py", "AutomateWeb.py" ou, se preferir, use o "TesteAutomate.ipynb"
+
+
+3. Adicione os dados:
+1- Nome do produto que você quer comparar os preços
+2- E-mail do EMISSOR
+3- E-mail do RECEPTOR
+
+4. Retorno do software
+O software enviará do e-mail do emissor mencionado para o e-mail do receptor mencionado:
+1- Um gráfico dos preços
+2- Um arquivo .xlsx, excel, para melhor visualização + links dos produtos
+```
+
+---
+
+## 📎 Exemplo de Saída
 Tabela Excel com os dados coletados
 
 Gráfico de comparação de preços
@@ -40,7 +66,7 @@ Ambos os arquivos são enviados por e-mail automaticamente
 
 ---
 
-🤖 Próximos passos
+## 🤖 Próximos passos
  Suporte a outros e-commerces (Mercado Livre, Magazine Luiza)
 
  Interface gráfica com Tkinter ou Flask
