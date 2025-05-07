@@ -41,7 +41,7 @@ cd comparativoPreco
 
 
 2. Escolha o projeto:
-Use o projeto "AutomateWebTrue.py", "AutomateWeb.py" ou, se preferir, use o "TesteAutomate.ipynb"
+Use o projeto "AutomateWeb.py" ou, se preferir formato jupter notebook, use o "TesteAutomate.ipynb"
 
 
 3. Adicione os dados:
