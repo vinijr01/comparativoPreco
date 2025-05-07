@@ -19,7 +19,9 @@ from time import sleep
 API_KEY = dadosPrivados.chaveApiScrapingBee()
 LinksProd = []
 
-nomeProduto = str(input("Digite o nome do produto: "))
+nomeProduto = str(input("Digite o nome do produto: ")).split()
+email1 = str(input("digite o e-mail que ENVIARÁ o e-mail: ")).split()
+email2 = str(input("digite o e-mail que RECEBERÁ o e-mail: ")).split()
 
 navegador = webdriver.Chrome()
 valorProd = []
@@ -194,7 +196,7 @@ tabela = pd.DataFrame.from_dict(dadosCompletos, orient="columns")
 
 df = pd.DataFrame(tabela)
 
-df.to_excel("AutomateWeb", index=False)
+# df.to_excel("AutomateWeb", index=False)
 
 print(f"Dados do produto: {nomeProduto}")
 print(df)
@@ -234,8 +236,8 @@ def enviar_email():
     emails = dadosPrivados.dadosEmail()
 
     msg['Subject'] = f"Informações do {nomeProduto}!"
-    msg['From'] = emails["email1"]
-    msg['To'] = emails["email2"]
+    msg['From'] = emails[email1]
+    msg['To'] = emails[email2]
 
     senhaEmail = emails["code"]
 
