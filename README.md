@@ -44,11 +44,14 @@ cd comparativoPreco
 Use o projeto "AutomateWeb.py" ou, se preferir formato jupter notebook, use o "TesteAutomate.ipynb"
 
 
-3. Adicione os dados:
-1- Nome do produto que você quer comparar os preços
-3- E-mail do RECEPTOR ( Email que irá receber os dados )
+3. Baixe as Tecnologias mencionadas acima em "Tecnologias Utilizadas" ( bibliotecas/ferramentas )
 
-4. Retorno do software
+
+4. Adicione os dados:
+1- Nome do produto que você quer comparar os preços
+2- E-mail do RECEPTOR ( Email que irá receber os dados )
+
+5. Retorno do software
 E pronto! Aguarde 30 segundos e você receberá sua tabela com os dados desta maneira:
 1- Um gráfico dos preços
 2- Um arquivo .xlsx, excel, para melhor visualização + links dos produtos
