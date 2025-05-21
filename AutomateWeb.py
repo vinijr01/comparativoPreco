@@ -19,9 +19,9 @@ from time import sleep
 API_KEY = dadosPrivados.chaveApiScrapingBee()
 LinksProd = []
 
-nomeProduto = str(input("Digite o nome do produto: ")).split()
-email1 = str(input("digite o e-mail que ENVIARÁ o e-mail: ")).split()
-email2 = str(input("digite o e-mail que RECEBERÁ o e-mail: ")).split()
+nomeProduto = str(input("Digite o nome do produto: ")).strip()
+# email1 = str(input("digite o e-mail que ENVIARÁ o e-mail: ")).strip()
+email2 = str(input("digite o e-mail que RECEBERÁ o e-mail: ")).strip()
 
 navegador = webdriver.Chrome()
 valorProd = []
@@ -60,6 +60,7 @@ if response.status_code == 200:
         if "/dp/" in link['href']:
 
             titulo = link.get_text(strip=True).lower()
+            indesejado = ["capinha", "capa", "case", "pelicula", "capinhas", "capas", "cases", "peliculas", "motorola", "xiaomi", "iphone"]
             if nomeProduto != indesejado:
                 indesejado = ["capinha", "capa", "case", "pelicula", "capinhas", "capas", "cases", "peliculas", "motorola", "xiaomi", "iphone"]
                 if any(palavra in titulo for palavra in indesejado):
@@ -201,8 +202,7 @@ df = pd.DataFrame(tabela)
 print(f"Dados do produto: {nomeProduto}")
 print(df)
 
-for i in range(len(df)):
-    df[f"Produto"] = [f"{nomeProduto} {i+1}"]
+df["Produto"] = [f"{nomeProduto} {i+1}" for i in range(len(df))]
 
 df["Preço"] =  df["Preço"].astype(float)
 
@@ -236,8 +236,8 @@ def enviar_email():
     emails = dadosPrivados.dadosEmail()
 
     msg['Subject'] = f"Informações do {nomeProduto}!"
-    msg['From'] = emails[email1]
-    msg['To'] = emails[email2]
+    msg['From'] = emails["email1"]
+    msg['To'] = email2
 
     senhaEmail = emails["code"]
 

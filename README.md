@@ -46,11 +46,10 @@ Use o projeto "AutomateWeb.py" ou, se preferir formato jupter notebook, use o "T
 
 3. Adicione os dados:
 1- Nome do produto que você quer comparar os preços
-2- E-mail do EMISSOR
-3- E-mail do RECEPTOR
+3- E-mail do RECEPTOR ( Email que irá receber os dados )
 
 4. Retorno do software
-O software enviará do e-mail do emissor mencionado para o e-mail do receptor mencionado:
+E pronto! Aguarde 30 segundos e você receberá sua tabela com os dados desta maneira:
 1- Um gráfico dos preços
 2- Um arquivo .xlsx, excel, para melhor visualização + links dos produtos
 ```
