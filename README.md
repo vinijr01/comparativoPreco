@@ -28,6 +28,15 @@ Ferramenta desenvolvida em Python para automatizar a busca por preços e avalia�
 - 📊 **Pandas** – organiza e exporta os dados em .xlsx
 - 📈 **Plotly** – gera gráficos comparativos com visual moderno
 - 📬 **smtplib + EmailMessage** – envia e-mail com os anexos
+- 🌐 **ChromeDriver** – Se conecta ao navegador Chrome
+
+---
+
+## 🖼️ Interface do Software
+
+Veja abaixo como o software se apresenta em execução:
+
+![Interface da aplicação](imagens/interface.png)
 
 ---
 
