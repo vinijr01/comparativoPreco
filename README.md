@@ -1,13 +1,17 @@
 # comparativoPreco
 Ferramenta automatizada de comparação de preços e avaliações de produtos (Amazon) usando Python, Web Scraping e envio de e-mail com análise gráfica.
 
-# 🛒 Smart Price Compare
+# Smart Price Compare — Automação RPA com Python
 
-Ferramenta desenvolvida em Python para automatizar a busca por preços e avaliações de produtos, a partir de uma pesquisa feita pelo usuário. Ideal para quem deseja tomar decisões de compra mais inteligentes e informadas.
+Projeto de automação desenvolvido em Python para realizar pesquisas de produtos, coletar informações de preço e avaliação, organizar dados e gerar relatórios comparativos enviados por e-mail.
+
+O projeto utiliza automação de navegador, integração com APIs, processamento de dados e geração de arquivos, demonstrando uma aplicação prática de RPA para reduzir atividades manuais de pesquisa e comparação de informações.
+
+Principais tecnologias: Python, Selenium, BeautifulSoup, APIs REST, Pandas, Plotly e SMTP.
 
 ---
 
-## 🚀 Funcionalidades
+## Funcionalidades
 
 ✅ Captura automática dos produtos com base em um termo de busca  
 ✅ Extração dos **links reais** dos produtos diretamente da Amazon  
@@ -19,20 +23,20 @@ Ferramenta desenvolvida em Python para automatizar a busca por preços e avalia�
 
 ---
 
-## 🧪 Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
-- 🧠 **Python 3**
-- 🕷️ **ScrapingBee API RESTful** – simula navegador e evita bloqueios
-- 🥣 **BeautifulSoup** – transforma HTML em dados legíveis
-- 🌐 **Selenium** – acessa links, extrai dados e interage com a página
-- 📊 **Pandas** – organiza e exporta os dados em .xlsx
-- 📈 **Plotly** – gera gráficos comparativos com visual moderno
-- 📬 **smtplib + EmailMessage** – envia e-mail com os anexos
-- 🌐 **ChromeDriver** – Se conecta ao navegador Chrome
+-  **Python 3**
+-  **ScrapingBee API RESTful** – simula navegador e evita bloqueios
+-  **BeautifulSoup** – transforma HTML em dados legíveis
+-  **Selenium** – acessa links, extrai dados e interage com a página
+-  **Pandas** – organiza e exporta os dados em .xlsx
+-  **Plotly** – gera gráficos comparativos com visual moderno
+-  **smtplib + EmailMessage** – envia e-mail com os anexos
+-  **ChromeDriver** – Se conecta ao navegador Chrome
 
 ---
 
-## 🖼️ Interface do Software
+## Interface do Software
 
 Veja abaixo como o software se apresenta em execução:
 
@@ -40,7 +44,7 @@ Veja abaixo como o software se apresenta em execução:
 
 ---
 
-## 📦 Como Executar o Projeto
+## Como Executar o Projeto
 
 ```bash
 1. Clone o repositório:
@@ -68,7 +72,7 @@ E pronto! Aguarde 30 segundos e você receberá sua tabela com os dados desta ma
 
 ---
 
-## 📎 Exemplo de Saída
+## Exemplo de Saída
 Tabela Excel com os dados coletados
 
 Gráfico de comparação de preços
@@ -77,7 +81,7 @@ Ambos os arquivos são enviados por e-mail automaticamente
 
 ---
 
-## 🤖 Próximos passos
+## Próximos passos
  Suporte a outros e-commerces (Mercado Livre, Magazine Luiza)
 
  Interface gráfica com Tkinter ou Flask
