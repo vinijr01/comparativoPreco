@@ -1,0 +1,25 @@
+# Ambientes e cache Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Segredos e configurações locais
+.env
+dadosPrivados.py
+
+# Relatórios e artefatos gerados
+saida/
+saida_notebook/
+diagnostico.txt
+*.xlsx
+grafico_comparativo.html
+grafico_comparativo.png
+
+# Editores e sistema operacional
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
